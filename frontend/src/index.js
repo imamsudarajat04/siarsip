@@ -1,5 +1,5 @@
 import App from './App';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 
 // ReactDOM.render(<App />, document.querySelector('#root'));

@@ -1,4 +1,6 @@
 import React from "react";
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const Login = () => {
         return (
@@ -9,23 +11,28 @@ const Login = () => {
                         <div className="card mt-5">    
                             <div className="card-body bg-light">
                                 <h2 className="text-center">LOGIN SISTEM</h2>
-                                <form action="">
-                                    <div className="form-group">
-                                        <label htmlFor="Email">Email </label>
-                                        <input type="email" className="form-control" name="email" placeholder="Masukkan Email.." />
+                                <Form>
+                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Label>Email address</Form.Label>
+                                        <Form.Control type="email" placeholder="Enter email" />
+                                        <Form.Text className="text-muted">
+                                        We'll never share your email with anyone else.
+                                        </Form.Text>
+                                    </Form.Group>
+
+                                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                                        <Form.Label>Password</Form.Label>
+                                        <Form.Control type="password" placeholder="Password" />
+                                    </Form.Group>
+                                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                                        <Form.Check type="checkbox" label="Check me out" />
+                                    </Form.Group>
+                                    <div className="d-grid gap-2">
+                                        <Button variant="primary" type="submit">
+                                            Submit
+                                        </Button>
                                     </div>
-                                    <br/>
-                                    <div className="form-group">
-                                        <label htmlFor="Password">Password </label>
-                                        <input type="password" className="form-control" name="password" placeholder="Masukkan Password.."  />
-                                    </div>
-                                    <br/>
-                                    <div className="form-check">
-                                        <input type="checkbox" className="form-check-input" />
-                                        <label className="form-check-label" for="exampleCheck1">Remember Me</label>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>   
-                                </form>
+                                </Form>
                             </div>
                         </div>
                     </div>
