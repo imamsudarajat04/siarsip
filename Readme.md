@@ -1,4 +1,12 @@
-## Sistem Informasi Pengarsipan Barang (SIARSIP)
+# Sistem Informasi Pengarsipan Barang (SIARSIP)
 
-> npm start untuk frontend </br>
-> php artisan serve untuk backend
+
+## Testing Frontend Menggunakan React JS
+```
+npm start untuk frontend
+```
+
+## Testing Backend Menggunakan Laravel Versi 9
+```
+php artisan server untuk backend
+```
