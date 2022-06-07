@@ -1,8 +1,36 @@
+// import axios from 'axios';
 import React from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const Login = () => {
+
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            password: ''
+        };
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const { email, password } = this.state;
+        axios.post('http://localhost:5000/api/auth/login', { email, password })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
         return (
             <div className="container">
                 <div className="row justify-content-center">
@@ -11,10 +39,10 @@ const Login = () => {
                         <div className="card mt-5">    
                             <div className="card-body bg-light">
                                 <h2 className="text-center">LOGIN SISTEM</h2>
-                                <Form>
+                                <Form onSubmit={this.handleSubmit}>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
                                         <Form.Label>Email address</Form.Label>
-                                        <Form.Control type="email" placeholder="Enter email" />
+                                        <Form.Control type="email" name="email" value={this.state.email} onChange={this.onChangeName} placeholder="Enter email" />
                                         <Form.Text className="text-muted">
                                         We'll never share your email with anyone else.
                                         </Form.Text>
@@ -22,7 +50,7 @@ const Login = () => {
 
                                     <Form.Group className="mb-3" controlId="formBasicPassword">
                                         <Form.Label>Password</Form.Label>
-                                        <Form.Control type="password" placeholder="Password" />
+                                        <Form.Control type="password" name="password" value={this.state.password} placeholder="Password" />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                         <Form.Check type="checkbox" label="Check me out" />
@@ -41,4 +69,4 @@ const Login = () => {
         );
 }
 
-export default Login
+export default Login 
