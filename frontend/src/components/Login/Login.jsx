@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate  } from 'react-router';
 
 function Login() {
@@ -13,6 +13,14 @@ function Login() {
 
     //define navigate
     const navigate = useNavigate();
+
+    //hook useEffect
+    useEffect(() => {
+        //check token
+        if (localStorage.getItem("token")) {
+            navigate("/dashboard");
+        }
+    }, []);
 
     //function "loginHanlder"
     const loginHandler = async (e) => {
