@@ -1,6 +1,3 @@
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-
 //import hook react
 import React, { useState, useEffect } from 'react';
 
@@ -9,6 +6,11 @@ import { useNavigate } from 'react-router';
 
 //import axios
 import axios from 'axios';
+
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Dashboard() {
 
@@ -67,30 +69,29 @@ function Dashboard() {
     };
 
     return (
-        <Navbar bg="light">
+        <Navbar bg="light" variant="light">
             <Container>
                 <Navbar.Brand href="/dashboard">SIARSIP</Navbar.Brand>
                     <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>
-                        {user.name} <button onClick={logoutHanlder} className="btn btn-md btn-danger">LOGOUT</button>
+                        <Nav variant="tabs" activeKey="1">
+                        <Nav.Item>
+                            <Nav.Link disabled>{user.name}</Nav.Link>
+                        </Nav.Item>
+                            <NavDropdown title="Pengaturan" id="nav-dropdown">
+                                <NavDropdown.Item>Action</NavDropdown.Item>
+                                <NavDropdown.Item>Another action</NavDropdown.Item>
+                                <NavDropdown.Item>Something else here</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item><a onClick={logoutHanlder}>Logout</a></NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                        {/* <button onClick={logoutHanlder} className="btn btn-md btn-danger">LOGOUT</button> */}
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-        // <div className="container" style={{ marginTop: "50px" }}>
-        //     <div className="row justify-content-center">
-        //         <div className="col-md-12">
-        //             <div className="card border-0 rounded shadow-sm">
-        //                 <div className="card-body">
-        //                     SELAMAT DATANG <strong className="text-uppercase">{user.name}</strong>
-        //                     <hr />
-        //                     <button onClick={logoutHanlder} className="btn btn-md btn-danger">LOGOUT</button>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
     );
 
 }
