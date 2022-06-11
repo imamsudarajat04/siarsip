@@ -1,6 +1,6 @@
 import React from "react";
 import Login from "./components/Login/Login";
-import { Outlet, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard/Dashboard"
 
 const App = () => {
